@@ -21,6 +21,17 @@ class Player_2:
         self.inventory = {"Magnifying_Glass":0, "Beer_Can":0, "Hacksaw":0, "Cigarettes":0}
         self.opponent = "Player_1"
 
+class Player:
+    def __init__(self, name, health, inventory, opponent):
+        self.name = name
+        self.health = health
+        self.inventory = inventory
+        self.opponent = opponent
+
+Player_1 = Player(input("Please enter your name: "), 6, {"Magnifying_Glass":0, "Beer_Can":0, "Hacksaw":0, "Cigarettes":0}, "Player_2")
+
+Player_2 = Player(input("Please enter your name: "), 6, {"Magnifying_Glass":0, "Beer_Can":0, "Hacksaw":0, "Cigarettes":0}, "Player_1")
+
 def intro():
     print("\n", "Welcome to Buckshot Roulette!", "\n")
     Player_1.name = input("Player 1 please enter your name: ")
