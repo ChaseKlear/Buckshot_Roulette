@@ -7,26 +7,37 @@ SHOTGUN_DAMAGE = 1
 
 TURN = "Player_1"
     
-class Player_1:
-    def __init__(self, name, health, inventory, opponent):
-        self.name = "Player_1"
-        self.health = 6
-        self.inventory = {"Magnifying_Glass":0, "Beer_Can":0, "Hacksaw":0, "Cigarettes":0}
-        self.opponent = "Player_2"
+# class Player_1:
+#     def __init__(self, name, health, inventory, opponent):
+#         self.name = "Player_1"
+#         self.health = 6
+#         self.inventory = {"Magnifying_Glass":0, "Beer_Can":0, "Hacksaw":0, "Cigarettes":0}
+#         self.opponent = "Player_2"
 
-class Player_2:
-    def __init__(self, name, health, inventory, opponent):
-        self.name = "Player_2"
-        self.health = 6
-        self.inventory = {"Magnifying_Glass":0, "Beer_Can":0, "Hacksaw":0, "Cigarettes":0}
-        self.opponent = "Player_1"
+# class Player_2:
+#     def __init__(self, name, health, inventory, opponent):
+#         self.name = "Player_2"
+#         self.health = 6
+#         self.inventory = {"Magnifying_Glass":0, "Beer_Can":0, "Hacksaw":0, "Cigarettes":0}
+#         self.opponent = "Player_1"
 
 class Player:
+    __slots__ = ["__name", "__health", "__inventory", "__opponent"]
+    
     def __init__(self, name, health, inventory, opponent):
-        self.name = name
-        self.health = health
-        self.inventory = inventory
-        self.opponent = opponent
+        self.__name = name
+        self.__health = health
+        self.__inventory = inventory
+        self.__opponent = opponent
+    
+    def get_name(self, player):
+        return player.__name
+    def get_health(self, player):
+        return player.__health
+    def get_inventory(self, player):
+        return player.__inventory
+    def get_opponent(self, player):
+        return player.__opponent
 
 Player_1 = Player(input("Please enter your name: "), 6, {"Magnifying_Glass":0, "Beer_Can":0, "Hacksaw":0, "Cigarettes":0}, "Player_2")
 
@@ -34,7 +45,7 @@ Player_2 = Player(input("Please enter your name: "), 6, {"Magnifying_Glass":0, "
 
 def intro():
     print("\n", "Welcome to Buckshot Roulette!", "\n")
-    Player_1.name = input("Player 1 please enter your name: ")
+    Player.get_name(Player_1) = input("Player 1 please enter your name: ")
     Player_2.name = input("Player 2 please enter your name: ")
 
 def Magnifying_Glass():
